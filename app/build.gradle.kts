@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -37,6 +38,18 @@ android {
 }
 
 dependencies {
+    ///icon
+    implementation(libs.compose.icons)
+    //room dan ksp
+    implementation(libs.bundles.room)
+    ksp(libs.room.compiler)
+    //view model
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycle.runtime.compose)
+    //navigasi
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.android.navigation.runtime.ktx)
+    //compose
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
